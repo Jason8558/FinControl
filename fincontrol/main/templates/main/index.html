@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управление Личными Финансами</title>
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Управление Личными Финансами</h1>
+        <nav>
+            <ul>
+                <li><a href="#dashboard">Главная</a></li>
+                <li><a href="#transactions">Транзакции</a></li>
+                <li><a href="#reports">Отчеты</a></li>
+                <li><a href="#settings">Настройки</a></li>
+                <li><a href="#safe">Отложенные средства</a></li>
+                <li><a href="#planning">Планирование</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="dashboard">
+            <h2>Панель управления</h2>
+            <div class="finance-summary">
+                <div class="card">
+                    <h3>Баланс</h3>
+                    <p class="amount">+45,300 ₽</p>
+                </div>
+                <div class="card">
+                    <h3>Расходы на текущий месяц</h3>
+                    <p class="amount">-15,200 ₽</p>
+                </div>
+                <div class="card">
+                    <h3>Доходы на текущий месяц</h3>
+                    <p class="amount">+60,500 ₽</p>
+                </div>
+            </div>
+            <button class="add-button">Добавить транзакцию</button>
+        </section>
+
+        <section id="transactions">
+            <h2>Транзакции за текущий месяц</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Дата</th>
+                        <th>Описание</th>
+                        <th>Сумма</th>
+                        <th>Тип</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>01.01.2023</td>
+                        <td>Заработная плата</td>
+                        <td>+50,000 ₽</td>
+                        <td>Доход</td>
+                    </tr>
+                    <tr>
+                        <td>05.01.2023</td>
+                        <td>Аренда квартиры</td>
+                        <td>-15,000 ₽</td>
+                        <td>Расход</td>
+                    </tr>
+                    <tr>
+                        <td>10.01.2023</td>
+                        <td>Покупка продуктов</td>
+                        <td>-2,000 ₽</td>
+                        <td>Расход</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="reports">
+            <h2>Отчеты</h2>
+            <p>Здесь будут ваши отчеты по финансам</p>
+        </section>
+
+
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Управление Личными Финансами. Все права защищены.</p>
+    </footer>
+</body>
+</html>
