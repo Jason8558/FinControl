@@ -113,3 +113,100 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+/* форма авторизации */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.loginform_body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.loginform_container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #4a90e2;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+label {
+    position: absolute;
+    left: 10px;
+    top: 15px;
+    color: #999;
+    transition: 0.2s ease all;
+}
+
+input {
+    width: 100%;
+    padding: 15px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: #4a90e2;
+    outline: none;
+}
+
+input:focus + label,
+input:not(:placeholder-shown) + label {
+    top: -10px;
+    left: 10px;
+    font-size: 12px;
+    color: #4a90e2;
+}
+
+button {
+    padding: 15px;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #357ab7;
+}
+
+.message {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #666;
+}
+
+.message a {
+    color: #4a90e2;
+    text-decoration: none;
+}

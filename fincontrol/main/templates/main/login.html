@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма Авторизации</title>
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+</head>
+<body class="loginform_body">
+    <div class="loginform_container container">
+        <form class="login-form" action="{% url 'MainPage'%}" method="post">
+            {% csrf_token %}
+            <h1>Вход</h1>
+            <div class="input-group">
+
+                <input type="text" id="username" name="username" placeholder="Логин" required>
+            </div>
+            <div class="input-group">
+           
+                <input type="password" id="password" name="password" placeholder="Пароль" required>
+            </div>
+            <button type="submit">Войти</button>
+        </form>
+    </div>
+</body>
+</html>
