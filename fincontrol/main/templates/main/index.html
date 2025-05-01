@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Управление Личными Финансами</title>
     <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+    <script src="{% static 'main/js/transactions.js' %}"></script>
 </head>
 <body>
     <header>
@@ -42,6 +43,7 @@
                 </div>
             </div>
             <button class="add-button">Добавить транзакцию</button>
+            <button class="add-button">Загрузить из файла банковской выписки</button>
         </section>
 
         <section id="transactions">
@@ -56,24 +58,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>01.01.2023</td>
-                        <td>Заработная плата</td>
-                        <td>+50,000 ₽</td>
-                        <td>Доход</td>
-                    </tr>
-                    <tr>
-                        <td>05.01.2023</td>
-                        <td>Аренда квартиры</td>
-                        <td>-15,000 ₽</td>
-                        <td>Расход</td>
-                    </tr>
-                    <tr>
-                        <td>10.01.2023</td>
-                        <td>Покупка продуктов</td>
-                        <td>-2,000 ₽</td>
-                        <td>Расход</td>
-                    </tr>
+                    {% for rec in transactions %}
+                        <tr>
+                            <td>{{rec.event_date | date:"d.m.Y"}}</td>
+                            <td>{{rec.description}}</td>
+                            <td>{{rec.summa}}</td>
+                            <td>{{rec.movetype}}</td>
+                        </tr>
+                    {%endfor%}
                 </tbody>
             </table>
         </section>
@@ -85,6 +77,41 @@
 
 
     </main>
+
+    <div class="new_transaction_form">
+    <form action="#" id="transactions_form" method="post">
+        <input type="date" name="event_date" id="event_date">
+        <input type="text" name="summa" id="summa">
+        
+        <select name="category" id="category">
+            {% for cat in categories %}
+                <option value="{{cat.id}}">{{cat.name}}</option>
+            {% endfor %}
+        </select>
+        
+        <select name="movetype" id="movetype">
+            {% for mt in move_types %}
+                <option value="{{mt.id}}">{{mt.name}}</option>
+            {% endfor %}
+        </select>
+        
+        <select name="moneytype" id="moneytype">
+            {% for mon_t in money_types %}
+                <option value="{{mon_t.id}}">{{mon_t.name}}</option>
+            {% endfor %}
+        </select>
+        
+        <input type="text" placeholder="Описание" name="description" id="description">
+        <input type="hidden" name="url" value="{% url 'TransactionsManage' %}">
+
+        
+
+    </form>   
+
+    <input type="button" onclick='add_transaction()' value="Добавить">
+
+    </div>
+
 
     <footer>
         <p>&copy; 2023 Управление Личными Финансами. Все права защищены.</p>

@@ -210,3 +210,13 @@ button:hover {
     color: #4a90e2;
     text-decoration: none;
 }
+
+.new_transaction_form {
+    position: fixed;
+    left: 1143px;
+    top: 409px;
+    background: white;
+    padding: 21px;
+    z-index: 999;
+    border: 6px solid #4a90e2;
+}
