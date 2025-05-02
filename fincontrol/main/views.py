@@ -55,7 +55,7 @@ def transaction_manage(request):
             form.save()
             return JsonResponse({"answer":"прив"}, safe=False)
         else:
-            return JsonResponse(form.errors.as_json, safe=False)
+            return JsonResponse(list(form.errors.as_json), safe=False)
 
 
     return JsonResponse({"?":"?"}, safe=False)

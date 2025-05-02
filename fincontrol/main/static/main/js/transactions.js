@@ -47,4 +47,16 @@ function add_transaction() {
         return null;
       }
 
+      get_transactions('/ws/get-transactions/')
+
+}
+
+function get_transactions(url) {
+
+    var socket = new WebSocket('ws://' + document.URL.split('/')[2] + url)
+    socket.onmessage = function(event){
+        var data = JSON.parse(event.data)
+        console.log(data)
+    }
+
 }
